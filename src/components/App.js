@@ -14,18 +14,18 @@ const UserInfo = () => {
 function App() {
   const [posts,setPosts] = useState([]);
   const [loading,setLoading] = useState(true);
-  useEffect(() =>{
+  // useEffect(() =>{
 
-    const fetchPosts = async () =>{
-      const response = await getPosts();
-      console.log('response',response);
-      if(response.success){
-        setPosts(response.data.posts);
-      }
-      setLoading(false);
-    }
-    fetchPosts();
-  },[]);
+  //   const fetchPosts = async () =>{
+  //     const response = await getPosts();
+  //     console.log('response',response);
+  //     if(response.success){
+  //       setPosts(response.data.posts);
+  //     }
+  //     setLoading(false);
+  //   }
+  //   fetchPosts();
+  // },[]);
 
   if(loading){
     return <Loader/>
@@ -35,7 +35,7 @@ function App() {
       <Navbar/>
       
         <Routes>
-          <Route exact path='/' element={<Home posts={posts} />}></Route>
+          <Route exact path='/' element={<Home posts={[]} />}></Route>
           <Route exact path="/about" element={<About/>}></Route>
           <Route exact path="/info" element={<UserInfo/>}></Route>
           <Route path="/login" element={<Login />}></Route>
