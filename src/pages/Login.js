@@ -10,7 +10,7 @@ const Login = () => {
     const { addToast } = useToasts();
     const auth = useAuth();
 
-    console.log(auth);
+    console.log('auth',auth);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
