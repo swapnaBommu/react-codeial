@@ -3,6 +3,16 @@ import {Home,Login,Signup,Settings} from "../pages";
 import {Loader, Navbar} from "./";
 import {Routes,Route} from'react-router-dom';
 import { useAuth } from '../hooks';
+import { Navigate } from "react-router-dom";
+
+const ProtectedRoute = ({ user, children }) => {
+  const auth = useAuth();
+  if (!auth.user) {
+    return <Navigate to="/login" replace />;
+  }
+
+  return children;
+};
 
 const Page404 =() =>{
   return <h1>404</h1>;
@@ -21,7 +31,15 @@ function App() {
           <Route exact path='/' element={<Home />}></Route>
           <Route exact path="/login" element={<Login />}></Route>
           <Route exact path="/register" element={<Signup />}></Route>
-          <Route exact path="/settings" element={<Settings />}></Route>
+          
+          <Route
+          path="/settings"
+          element={
+            <ProtectedRoute >
+              <Settings />
+            </ProtectedRoute>
+          }
+        />
           <Route element={<Page404 />}></Route>
         </Routes>
       
