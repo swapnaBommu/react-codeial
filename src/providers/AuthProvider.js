@@ -5,6 +5,7 @@ const initalstate = {
     user: null,
     login: () => {},
     logout: () => {},
+    signup: () => {},
     loading: true 
 }
 

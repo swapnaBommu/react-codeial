@@ -1,8 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
-import { login as userLogin} from '../api';
+import { login as userLogin,register} from '../api';
 import jwt from 'jwt-decode';
-import { LOCALSTORAGE_TOKEN_KEY, getItemFromLocalStorage, removeItemFromLocalStorage, setItemInLocalStorage } from "../utils";
+import { 
+    LOCALSTORAGE_TOKEN_KEY, 
+    getItemFromLocalStorage, 
+    removeItemFromLocalStorage, 
+    setItemInLocalStorage } from "../utils";
 
 export const useAuth = () => {
     return useContext(AuthContext);
@@ -44,12 +48,27 @@ export const useProvideAuth = () => {
         setUser(null);
         removeItemFromLocalStorage(LOCALSTORAGE_TOKEN_KEY);
     };
+    const signup = async (name, email, password, confirmPassword) => {
+        const response = await register(name, email, password, confirmPassword);
+    
+        if (response.success) {
+          return {
+            success: true,
+          };
+        } else {
+          return {
+            success: false,
+            message: response.message,
+          };
+        }
+    };
 
     return {
         user,
         login,
         logout,
-        loading
+        loading,
+        signup,
     }
 
 };
