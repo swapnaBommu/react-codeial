@@ -241,4 +241,19 @@
   .addPostBtn:hover {
     cursor: pointer;
   }
-  
+  .commentActions {
+    padding: 5px;
+    display: flex;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #616161;
+   
+  }
+  .commentActions img {
+    height: 18px;
+  }
+  .commentActions img:hover {
+    cursor: pointer;
+  }
+ 
