@@ -3,4 +3,5 @@ import Loader from './Loader';
 import Navbar from './Navbar';
 import Comment from './Comment';
 import FriendList from './FriendList';
-export { App, Loader, Navbar, Comment,FriendList };
+import CreatePost from './CreatePost';
+export { App, Loader, Navbar, Comment,FriendList,CreatePost };
