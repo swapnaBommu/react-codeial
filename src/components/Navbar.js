@@ -39,6 +39,7 @@ const Navbar = () => {
       <div className={styles.searchContainer}>
         <img className={styles.searchIcon} 
               src='https://cdn-icons-png.flaticon.com/128/54/54481.png'
+              alt=""
         />
         <input 
           placeholder='search users' 

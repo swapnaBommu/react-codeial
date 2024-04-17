@@ -8,6 +8,7 @@ import { Navigate } from "react-router-dom";
 const ProtectedRoute = ({ children,...rest }) => {
   const auth = useAuth();
   if (!auth.user) {
+    
     return <Navigate to="/login" replace />;
   }
 

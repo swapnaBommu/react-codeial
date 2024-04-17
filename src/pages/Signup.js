@@ -12,6 +12,7 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [signingUp, setSigningUp] = useState('');
   const { addToast } = useToasts();
+  
   const auth = useAuth();
   const history = useNavigate();
 
